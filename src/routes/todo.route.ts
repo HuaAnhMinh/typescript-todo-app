@@ -29,7 +29,7 @@ todoRoute.post('/todos',  async (req, res) => {
 
 todoRoute.get('/todos', async (req, res) => {
   try {
-    const todos = await Todo.find();
+    const todos = await Todo.find().select('_id title deadline isFinished');
     res.send({
       todos,
     });
