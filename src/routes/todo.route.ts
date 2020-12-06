@@ -31,7 +31,7 @@ todoRoute.get('/todos', async (req, res) => {
   try {
     const todos = await Todo.find().select('_id title deadline isFinished');
     res.send({
-      todos,
+      todos: todos.reverse(),
     });
   }
   catch (err) {
